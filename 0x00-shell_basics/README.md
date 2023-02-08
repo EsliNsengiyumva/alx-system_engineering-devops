@@ -1,1 +1,1 @@
-my first commit
+#!/bin/bash \n pwd
