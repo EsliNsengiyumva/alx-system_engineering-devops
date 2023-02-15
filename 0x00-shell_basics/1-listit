@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -R 1-listit 
+ls 
