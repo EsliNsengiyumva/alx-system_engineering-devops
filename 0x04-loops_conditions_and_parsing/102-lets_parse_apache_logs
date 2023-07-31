@@ -7,4 +7,4 @@ if [ ! -f "apache-access.log" ]; then
 fi
 
 # Use awk to extract IP and HTTP status code from the log file
-awk '{print $1, $9}' apache-access.log
+awk '{print $1, $9}' apache-access.log  | sort | uniq -c | sort -rn
