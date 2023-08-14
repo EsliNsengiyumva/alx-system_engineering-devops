@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Get the list of network interfaces
+
+#!/bin/bash
 interfaces=$(ip -o link show | awk -F': ' '{print $2}')
 
 # Loop through each interface
