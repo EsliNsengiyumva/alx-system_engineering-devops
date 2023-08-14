@@ -1,17 +1,4 @@
 #!/usr/bin/env bash
-# Get the list of network interfaces
+# Displays all acive IPv4 addresses.
 
-#!/bin/bash
-interfaces=$(ip -o link show | awk -F': ' '{print $2}')
-
-# Loop through each interface
-for interface in $interfaces; do
-    # Get the IP address for the interface
-    ip_address=$(ip -4 addr show $interface | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
-    
-    # If IP address exists and is not 127.0.0.1 (localhost), print it
-    if [[ -n "$ip_address" && "$ip_address" != "127.0.0.1" ]]; then
-        echo "Interface $interface: $ip_address"
-    fi
-done
-
+ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | cut -b 11-
