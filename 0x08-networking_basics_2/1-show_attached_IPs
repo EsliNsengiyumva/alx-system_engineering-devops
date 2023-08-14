@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Displays all acive IPv4 addresses.
 
-#!/bin/bash
 
 # Get the list of network interfaces
 interfaces=$(ip -o link show | awk -F': ' '{print $2}')
